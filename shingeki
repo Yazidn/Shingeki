@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Preferences
+DWNDIR="/home/$USER/manga/aot/"
+
+# Script
+CHAPTER=$(
+curl http://manganelos.com/attack-on-titan-chapter-1 |
+       	pup 'select option text{}' | sort -u -k 2 -n |
+       	grep '\S' |
+       	sed 's/:/-/' |
+       	dmenu -l 15 -i |
+       	cut -d' ' -f2
+)
+
+curl http://manganelos.com/attack-on-titan-chapter-$CHAPTER |
+       	pup 'p#arraydata text{}' |
+       	tr ',' '\n' |
+       	xargs -n 1 curl -LO --create-dirs --output-dir $DWNDIR$CHAPTER
