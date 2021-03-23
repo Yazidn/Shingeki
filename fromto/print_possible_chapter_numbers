@@ -1,0 +1,4 @@
+#!/bin/sh
+curl http://manganelos.com/attack-on-titan-chapter-1 |
+       	pup 'select option text{}' | sort -u -k 2 -n |
+       	grep '\S' | sed 's/:/-/'
