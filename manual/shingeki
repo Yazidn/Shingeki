@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Location
+DWNDIR="/home/$USER/manga/aot/"
+
+# Grab
+curl http://manganelos.com/attack-on-titan-chapter-$1 |
+       	pup 'p#arraydata text{}' |
+       	tr ',' '\n' |
+       	xargs -n 1 curl -LO --create-dirs --output-dir $DWNDIR$1 &&
+	notify-send -t 5000 "Chapter $1 is ready!" "Start reading by going to $DWNDIR$1."

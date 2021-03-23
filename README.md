@@ -1,10 +1,14 @@
 # Shingeki
 A shell script to read Attack On Titan manga locally.
 
+### Description
+You have the option to use it with dmenu or fzf, or without both and you manually pass the chapter number as an only argument and it will act the same way the other two do, except for the prompt.
+
 ### Requirements
 + curl
-+ dmenu
 + pup
++ dmenu (ptional)
++ fzf (optional)
 
 ### Usage
 Make sure it is set to executable before you try to run it, when it runs, you'll see a dmenu prompt where you can search and select the chapter you want, once you make your selection, the corresponding pages will be downloaded to your home folder under a "manga" folder, unless specified otherwise in **DWNDIR** in the script.

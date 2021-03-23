@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Location
+DWNDIR="/home/$USER/manga/aot/"
+
+# Prompt
+CHAPTER=$(
+curl http://manganelos.com/attack-on-titan-chapter-1 |
+       	pup 'select option text{}' | sort -u -k 2 -n |
+       	grep '\S' | sed 's/:/-/' | fzf | cut -d' ' -f2
+)
+
+# Grab
+curl http://manganelos.com/attack-on-titan-chapter-$CHAPTER |
+       	pup 'p#arraydata text{}' |
+       	tr ',' '\n' |
+       	xargs -n 1 curl -LO --create-dirs --output-dir $DWNDIR$CHAPTER &&
+	notify-send -t 5000 "Chapter $CHAPTER is ready!" "Start reading by going to $DWNDIR$CHAPTER."
