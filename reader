@@ -1,0 +1,2 @@
+#!/bin/sh
+feh -F -. -S mtime --reverse /home/$USER/manga/aot/$(find ~/manga/aot -type d | cut -d'/' -f6 | grep '\S' | sort -n | dmenu -l 10 -p 'Attack On Titan: Chapter - ')

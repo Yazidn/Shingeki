@@ -22,3 +22,6 @@ This makes it easier to download a range of chapters all at once, you use it by 
 
 ### Extras
 I personally use **feh** for viewing images, therefore I added an **alias** in my __.bashrc__ that uses feh with some other commands that make sure I can immediately start reading in fullscreen and have the pages sorted accordingly, if you use **feh**, then this should work for you as well. `alias mng='feh -S mtime --reverse -F'`
+
+### Notes
+The `reader` script is more of a custom script for my own case than a general one to be used by everyone else. It assumes many things, you can change it to fit your usage if you want. What it's basically doing is getting all the folders corresponding to the chapters that I currently have locally, display them as a searchable list via dmenu, cleanup a bit and then launch my image viewer with the proper options.
