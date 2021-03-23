@@ -7,7 +7,7 @@ You have the option to use it with dmenu or fzf, or without both and you manuall
 ### Requirements
 + curl
 + pup
-+ dmenu (ptional)
++ dmenu (optional)
 + fzf (optional)
 
 ### Usage
